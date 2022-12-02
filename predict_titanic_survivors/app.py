@@ -5,14 +5,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 import streamlit as st
+import os
 
 import pickle
 
-df = pd.read_csv("./data/train.csv")
+DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 
-MODEL_FILE = "./artefacts/clf_fitted.bin"
+df = pd.read_csv(f"{DIRECTORY}/data/train.csv")
 
-st.title("Titanic Survirvor Predictor")
+MODEL_FILE = f"{DIRECTORY}/artefacts/clf_fitted.bin"
+
+st.title("Titanic Survivor Predictor")
 
 nav = st.sidebar.radio(
     "Please chose one of the following options:",
